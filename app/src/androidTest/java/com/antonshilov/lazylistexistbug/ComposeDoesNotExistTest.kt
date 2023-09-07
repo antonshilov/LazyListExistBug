@@ -25,6 +25,7 @@ class ComposeDoesNotExistTest {
         rule.setContent { LazyColumnScreen() }
         rule.onNodeWithText("ITEM_TO_REMOVE").assertExists()
         rule.onNodeWithText("CLICK").performClick()
+        rule.waitForIdle()
         //failed
         rule.onNodeWithText("ITEM_TO_REMOVE").assertDoesNotExist()
     }
@@ -34,6 +35,7 @@ class ComposeDoesNotExistTest {
         rule.setContent { ColumnScreen() }
         rule.onNodeWithText("ITEM_TO_REMOVE").assertExists()
         rule.onNodeWithText("CLICK").performClick()
+        rule.waitForIdle()
         //passed
         rule.onNodeWithText("ITEM_TO_REMOVE").assertDoesNotExist()
     }
